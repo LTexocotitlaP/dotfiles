@@ -27,3 +27,5 @@ vim.opt.inccommand = "split" -- %s/
 vim.opt.ignorecase = true -- evicts upper case convention for plugins
 
 vim.opt.termguicolors = true
+
+vim.g.mapleader = " "
