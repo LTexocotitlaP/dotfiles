@@ -85,5 +85,12 @@ require("lazy").setup({
     },
     {
         "nvim-treesitter/nvim-treesitter-textobjects",
+    },
+    {
+        "neovim/nvim-lspconfig",
+        config = function()
+            local lspconfig = require("lspconfig")
+            lspconfig.clangd.setup({})
+        end,
     }
 })
