@@ -50,8 +50,25 @@ require("lazy").setup({
 					vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 					vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 			end,
-		}
+		},
+		{
+			'nvim-treesitter/nvim-treesitter',
+			lazy = false,
+			branch = 'main',
+			build = ':TSUpdate',
+			config = function()
+				require('nvim-treesitter.configs').setup({
+					ensure_installed = { "lua", "python", "javascript", "html", "css", "bash", "go", "typescript", "json", "yaml" },
+					highlight = {
+						enable = true,
+						additional_vim_regex_highlighting = false,
+					},
+					indent = { enable = true },
+				})
+			end,
+		},
 	},
+
 	-- Configure any other settings here. See the documentation for more details.
 	-- colorscheme that will be used when installing plugins.
 	install = { colorscheme = { "habamax" } },
